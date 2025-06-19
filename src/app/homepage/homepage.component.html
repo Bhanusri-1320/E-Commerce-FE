@@ -1,0 +1,7 @@
+<h1>Products:</h1>
+<div class="main">
+@for (item of products; track $index) {
+ <app-product [product]="item"></app-product>
+}
+</div>
+<!-- <app-product></app-product> -->
