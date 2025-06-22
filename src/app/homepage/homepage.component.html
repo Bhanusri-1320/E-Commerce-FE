@@ -1,7 +1,11 @@
-<h1>Products:</h1>
+<div class="hole">
+<div class="header">
+<h1 style="padding-left: 20px;">E-commerce</h1>
+<h1><i class="fa-solid fa-bars"></i></h1>
+</div>
 <div class="main">
 @for (item of products; track $index) {
  <app-product [product]="item"></app-product>
 }
 </div>
-<!-- <app-product></app-product> -->
+</div>

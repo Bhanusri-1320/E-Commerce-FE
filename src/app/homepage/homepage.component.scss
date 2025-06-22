@@ -1,3 +1,26 @@
+.hole
+{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.header
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #22949a;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 1px 1px 3px 3px rgb(27 27 27 / 16%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
 .main
 {
     display: flex;
@@ -5,4 +28,9 @@
     justify-content: space-evenly;
     gap:60px;
     flex-wrap: wrap;
+}
+
+.fa-bars
+{
+    padding-right: 20px;
 }

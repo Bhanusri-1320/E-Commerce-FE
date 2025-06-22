@@ -1,0 +1,21 @@
+<mat-card
+>
+@if (product) {
+    <div class="hole">
+  <div>
+    <img [src]="product.image" alt="{{product.name}}">
+  </div>
+  <div>
+    <h1>{{ product.name }}</h1>
+    <h2>{{ product.title }}</h2>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p>Rating: {{ product.rating }} ⭐</p>
+    <p>{{ product.description }}</p>
+    <button (click)="addToCart(product)" class="addToCart">Add To Cart</button>
+  </div>
+    </div>
+} @else {
+  <p>Loading product...</p>
+}
+</mat-card>
+

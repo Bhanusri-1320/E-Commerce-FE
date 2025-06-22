@@ -1,4 +1,4 @@
-<ion-card class="card">
+<ion-card class="card" (click)="productClicked()">
     <img 
     [src]="product.image" 
     alt="{{ product.name }}">
@@ -15,6 +15,7 @@
       </div>
       <p>{{ product.description }}</p>
     </ion-card-content>
+    <button fill="outline" class="addToCart" >Add To Cart</button>
   </div>
 </ion-card>
-
+<h1><i class="fa-solid fa-caret-up"></i></h1>

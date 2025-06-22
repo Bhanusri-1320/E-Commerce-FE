@@ -1,0 +1,12 @@
+.hole
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+img
+{
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+}
