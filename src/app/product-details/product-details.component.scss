@@ -10,3 +10,31 @@ img
     height: 400px;
     object-fit: cover;
 }
+ion-card{
+    display: inline;
+    width: 1300px;
+    height: 100%;
+    box-shadow: 1px 1px 3px 3px rgb(27 27 27 / 16%);  
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+.product-details
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.addToCart
+{
+    background: #22949a;
+    width: 100px;
+    height: 43px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

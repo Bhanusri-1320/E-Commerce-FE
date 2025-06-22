@@ -3,11 +3,13 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProductService } from '../service/product.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { IonCard } from "@ionic/angular/standalone";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule],
+  imports: [IonCard, MatCardModule, MatButtonModule,IonCard],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
@@ -16,6 +18,7 @@ export class ProductDetailsComponent {
   product:any;
  constructor(private route: ActivatedRoute,
   private productService: ProductService,
+  private router: Router
  ) {
     const id = this.route.snapshot.paramMap.get('id');
   }
@@ -36,7 +39,8 @@ export class ProductDetailsComponent {
       console.error('Error fetching product details:', error);
     });
   }
-  addToCart(arg: any) {
-    console.log('Add to cart clicked for product:', arg);
+  addToCart(product: any) {
+    console.log('Add to cart clicked for product:', product);
+    this.router.navigate(['cart', product.id]);
   }
 }

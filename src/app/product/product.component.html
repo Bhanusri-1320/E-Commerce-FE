@@ -1,6 +1,6 @@
-<ion-card class="card" (click)="productClicked()">
+<ion-card class="card" >
     <img 
-    [src]="product.image" 
+    [src]="product.image" (click)="productClicked()"
     alt="{{ product.name }}">
     <div style="flex: 1; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
     <ion-card-header style="padding: 0;">
@@ -9,13 +9,20 @@
       <ion-card-subtitle>{{ product.title }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content style="padding: 0;">
-        <div class="product-PR">
+      <div class="product-PR">
       <p><strong>Price:</strong> ${{ product.price }}</p>
       <p> {{ product.rating }} ⭐</p>
       </div>
-      <p>{{ product.description }}</p>
+      @if(flag)
+      {
+      <i class="fa-solid fa-caret-up" (click)="toggleDescription()"></i>
+      }
+      @else {
+      <i class="fa-solid fa-caret-down" (click)="toggleDescription()"></i>
+      <p (click)="toggleDescription()">{{ product.description }}</p>
+      }
     </ion-card-content>
-    <button fill="outline" class="addToCart" >Add To Cart</button>
+    <br>
+    <button fill="outline" class="addToCart" (click)="addToCart()" >Add To Cart</button>
   </div>
 </ion-card>
-<h1><i class="fa-solid fa-caret-up"></i></h1>

@@ -50,8 +50,12 @@ ion-card-title
 }
 .addToCart
 {
-  background:#22949a; 
-  width: 100px; 
-  height: 43px; 
-  font-weight:bold;
+    background: #22949a;
+    width: 100px;
+    height: 43px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

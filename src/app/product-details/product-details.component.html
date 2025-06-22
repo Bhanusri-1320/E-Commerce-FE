@@ -1,5 +1,5 @@
-<mat-card
->
+<div class="product-details">
+  <ion-card class="mat-card">
 @if (product) {
     <div class="hole">
   <div>
@@ -8,14 +8,18 @@
   <div>
     <h1>{{ product.name }}</h1>
     <h2>{{ product.title }}</h2>
-    <p><strong>Price:</strong> ${{ product.price }}</p>
-    <p>Rating: {{ product.rating }} ⭐</p>
-    <p>{{ product.description }}</p>
+    <p><strong>Price: </strong> ${{ product.price }}</p>
+    <p><strong>Rating: </strong> {{ product.rating }} ⭐</p>
+    <p><strong>Description: </strong>{{ product.description }}</p>
+    <p><strong>Category: </strong>{{product.category}}</p>
+    <p><strong>Brank: </strong> {{product.brand}}</p>
+    <p><strong>Discount: </strong> {{product.discount}}%</p>
     <button (click)="addToCart(product)" class="addToCart">Add To Cart</button>
-  </div>
+<p></p> 
+ </div>
     </div>
 } @else {
   <p>Loading product...</p>
 }
-</mat-card>
-
+</ion-card>
+</div>
