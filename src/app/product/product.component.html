@@ -15,10 +15,10 @@
       </div>
       @if(flag)
       {
-      <i class="fa-solid fa-caret-up" (click)="toggleDescription()"></i>
+      <i class="fa-solid fa-caret-down" (click)="toggleDescription()"></i>
       }
       @else {
-      <i class="fa-solid fa-caret-down" (click)="toggleDescription()"></i>
+      <i class="fa-solid fa-caret-up" (click)="toggleDescription()"></i>
       <p (click)="toggleDescription()">{{ product.description }}</p>
       }
     </ion-card-content>
