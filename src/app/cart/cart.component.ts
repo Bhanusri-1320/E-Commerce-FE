@@ -1,33 +1,30 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
-import { IonCard } from "@ionic/angular/standalone";
-
+import { CartDetailsComponent } from "../cart-details/cart-details.component";
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { Router } from '@angular/router';
 @Component({
+  standalone: true,
   selector: 'app-cart',
-  imports: [IonCard, ],
+  imports: [CartDetailsComponent,MatButtonModule, MatCardModule],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-   id!: string;
-   product:any;
-   constructor(private route:ActivatedRoute, private productService: ProductService)
+   products:any[] = [];
+   constructor(private route:ActivatedRoute, private productService: ProductService,private router:Router)
    {}
    ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.id = id;
-      console.log('CartComponent initialized with ID:', this.id);
-      this.getProductDetails(this.id);
-    }
+    this.getCartDetails();
    }
-   getProductDetails(id:string) {
-      this.productService.getProductById(this.id).subscribe(
-        (data) => {
-          this.product = data;
-          console.log('Product Details:', this.product);
-        }
-      )
-   }
+  getCartDetails() {
+    this.products=this.productService.getCartProducts();
+  }
+  Back()
+  {
+    console.log('Back button clicked');
+    this.router.navigate(['']);
+  }
 }

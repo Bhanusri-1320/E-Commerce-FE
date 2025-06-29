@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { ProductComponent } from "../product/product.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -11,7 +12,7 @@ import { ProductComponent } from "../product/product.component";
 export class HomepageComponent {
 
   products:any[]=[];
-  constructor(private productsService:ProductService)
+  constructor(private productsService:ProductService, private router:Router)
   {
   }
 
@@ -20,5 +21,7 @@ export class HomepageComponent {
       this.products=data;
     });
   }
-
+cart() {
+this.router.navigate(['cart']);
+}
 }

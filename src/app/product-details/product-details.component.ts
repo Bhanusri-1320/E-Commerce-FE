@@ -41,6 +41,7 @@ export class ProductDetailsComponent {
   }
   addToCart(product: any) {
     console.log('Add to cart clicked for product:', product);
-    this.router.navigate(['cart', product.id]);
+    this.productService.addToCart(product);
+    // this.router.navigate(['cart', product.id]);
   }
 }

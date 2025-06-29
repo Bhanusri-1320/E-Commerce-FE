@@ -1,4 +1,4 @@
-<div class="product-details">
+<!-- <div class="product-details">
   <ion-card class="mat-card">
 @if (product) {
     <div class="hole">
@@ -22,4 +22,22 @@
   <p>Loading product...</p>
 }
 </ion-card>
+</div> -->
+ 
+
+<div class="hole">
+  <!-- <div class="header">
+  <p>Product</p>
+  <p>price</p>
+  <p>quantity</p>
+  <p>total</p>
+  </div> -->
+<div class="header">
+<h1><i (click)="Back()" class="fa-solid fa-circle-arrow-left"></i></h1>
+</div>
+  <div>
+  @for (item of products; track $index) {
+<app-cart-details [product]="item" ></app-cart-details>
+  }
+  </div>
 </div>

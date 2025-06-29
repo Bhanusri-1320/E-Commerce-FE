@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {  IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ProductService } from '../service/product.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class ProductComponent { 
   @Input() product: any;
   flag=true;
-  constructor(private router:Router) {}
+  constructor(private router:Router,private productService:ProductService) {}
 
   productClicked() {
     // console.log('Product clicked:', this.product);
@@ -21,10 +22,11 @@ export class ProductComponent {
   }
   toggleDescription()
   {
-    this.flag = !this.flag;
+    this.flag = !this.flag; 
   }
    addToCart() {
     console.log('Add to cart clicked for product:');
-    this.router.navigate(['cart', this.product.id]);
+    this.productService.addToCart(this.product);
+    // this.router.navigate(['cart', this.product.id]);
   }
 }
