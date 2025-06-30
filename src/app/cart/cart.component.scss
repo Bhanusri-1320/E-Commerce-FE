@@ -59,3 +59,11 @@ ion-card{
     padding-left: 20px;
     cursor: pointer;
 }
+.main{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}

@@ -20,11 +20,14 @@ export class CartComponent {
     this.getCartDetails();
    }
   getCartDetails() {
-    this.products=this.productService.getCartProducts();
+    this.productService.getCartProducts().subscribe((data:any) => {
+      this.products = data;
+    }, (error) => {
+      console.error('Error fetching cart products:', error);
+    });
   }
   Back()
   {
-    console.log('Back button clicked');
     this.router.navigate(['']);
   }
 }

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
   private apiUrl="https://669a42939ba098ed61fef789.mockapi.io/ECommerce";
+  private cartUrl = "https://669a42939ba098ed61fef789.mockapi.io/Cart";
 
   private cartProducts:any=[];
 
@@ -18,10 +19,12 @@ export class ProductService {
     return this.http.get(`${this.apiUrl}/${id}`)
   }
   addToCart(product: any) {
-    this.cartProducts.push(product);
-    console.log('Product added to cart:', product);
+    return this.http.post(this.cartUrl, product)
+    // this.cartProducts.push(product);
+    // console.log('Product added to cart:', product);
   }
   getCartProducts() {
-    return this.cartProducts;
+    return this.http.get(this.cartUrl);
+    // return this.cartProducts;
   }
 }

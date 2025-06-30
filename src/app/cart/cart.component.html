@@ -35,9 +35,10 @@
 <div class="header">
 <h1><i (click)="Back()" class="fa-solid fa-circle-arrow-left"></i></h1>
 </div>
-  <div>
+  <div class="main">
   @for (item of products; track $index) {
-<app-cart-details [product]="item" ></app-cart-details>
+   <app-cart-details [product]="item" ></app-cart-details>
   }
   </div>
 </div>
+
