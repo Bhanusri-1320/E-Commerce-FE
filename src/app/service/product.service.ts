@@ -20,11 +20,11 @@ export class ProductService {
   }
   addToCart(product: any) {
     return this.http.post(this.cartUrl, product)
-    // this.cartProducts.push(product);
-    // console.log('Product added to cart:', product);
   }
   getCartProducts() {
     return this.http.get(this.cartUrl);
-    // return this.cartProducts;
+  }
+  removeFromCart(id: string) {
+    return this.http.delete(`${this.cartUrl}/${id}`);
   }
 }

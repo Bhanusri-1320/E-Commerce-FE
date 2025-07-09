@@ -1,43 +1,10 @@
-<!-- <div class="product-details">
-  <ion-card class="mat-card">
-@if (product) {
-    <div class="hole">
-  <div>
-    <img [src]="product.image" alt="{{product.name}}">
-  </div>
-  <div>
-    <h1>{{ product.name }}</h1>
-    <h2>{{ product.title }}</h2>
-    <p><strong>Price: </strong> ${{ product.price }}</p>
-    <p><strong>Rating: </strong> {{ product.rating }} ⭐</p>
-    <p><strong>Description: </strong>{{ product.description }}</p>
-    <p><strong>Category: </strong>{{product.category}}</p>
-    <p><strong>Brank: </strong> {{product.brand}}</p>
-    <p><strong>Discount: </strong> {{product.discount}}%</p>
-    <button  class="addToCart">Buy Now</button>
-<p></p> 
- </div>
-    </div>
-} @else {
-  <p>Loading product...</p>
-}
-</ion-card>
-</div> -->
- 
-
 <div class="hole">
-  <!-- <div class="header">
-  <p>Product</p>
-  <p>price</p>
-  <p>quantity</p>
-  <p>total</p>
-  </div> -->
 <div class="header">
-<h1><i (click)="Back()" class="fa-solid fa-circle-arrow-left"></i></h1>
+<h1><i (click)="Back()" title="back" class="fa-solid fa-circle-arrow-left"></i></h1>
 </div>
   <div class="main">
   @for (item of products; track $index) {
-   <app-cart-details [product]="item" ></app-cart-details>
+   <app-cart-details [product]="item" (itemSelected)="handleItem($event)"></app-cart-details>
   }
   </div>
 </div>

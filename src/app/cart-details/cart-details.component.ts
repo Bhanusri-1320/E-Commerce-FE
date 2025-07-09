@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,Output, EventEmitter  } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -10,20 +10,15 @@ import {MatCardModule} from '@angular/material/card';
 })
 export class CartDetailsComponent {
 @Input() product: any;
-// product: any;
+@Output() itemSelected = new EventEmitter<any>();
+
   constructor(private productService:ProductService) {}
   ngOnInit() {
-    // this.getProductDetailsById(this.id);
   }
-  // getProductDetailsById(id:any) {
-  //   this.productService.getProductById(id).subscribe(
-  //     (data) => {
-  //       console.log('Product Details cart:', data);
-  //       this.product = data;
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching product details:', error);
-  //     }
-  //   );
-  // }
+
+  removeFromCart()
+  {
+    this.itemSelected.emit(this.product);
+  }
+
 }

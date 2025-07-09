@@ -3,10 +3,22 @@
    <img [src]="product.image" alt="{{ product.name }}" class="product-image">
     <h4><Strong>{{product.name}}</Strong></h4>
     </div>
-    <div class="product-details">
+    <div class="detials">
+        <div class="product-details">
         <p>{{product.price}}</p>
         <p>quantity</p>
         <p>total</p>
         <p>Discount: {{product.discount}}</p>
+        </div>
+        <div>
+        <button (click)="removeFromCart()" style=" background: #22949a;
+    width: 100px;
+    height: 43px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;">Remove</button>
+        </div>
     </div>
 </mat-card> 
