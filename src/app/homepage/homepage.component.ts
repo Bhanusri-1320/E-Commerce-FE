@@ -11,17 +11,19 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent {
 
-  products:any[]=[];
-  constructor(private productsService:ProductService, private router:Router)
-  {
+  products: any[] = [];
+  constructor(private productsService: ProductService, private router: Router) {
   }
 
   ngOnInit() {
-    this.productsService.getAllProducts().subscribe((data:any)=>{
-      this.products=data;
+    this.productsService.getAllProducts().subscribe((data: any) => {
+      this.products = data;
     });
   }
-cart() {
-this.router.navigate(['cart']);
-}
+  cart() {
+    this.router.navigate(['cart']);
+  }
+  goToHome() {
+    this.router.navigate(['']);
+  }
 }
