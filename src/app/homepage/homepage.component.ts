@@ -16,14 +16,17 @@ export class HomepageComponent {
   }
 
   ngOnInit() {
-    this.productsService.getAllProducts().subscribe((data: any) => {
-      this.products = data;
-    });
+    this.loadProducts();
   }
   cart() {
     this.router.navigate(['cart']);
   }
   goToHome() {
     this.router.navigate(['']);
+  }
+  loadProducts() {
+    this.productsService.getAllProducts().subscribe((data: any) => {
+      this.products = data;
+    });
   }
 }

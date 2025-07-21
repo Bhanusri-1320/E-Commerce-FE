@@ -20,8 +20,8 @@ export class ProductComponent {
   constructor(private router: Router, private productService: ProductService, private snackBar: MatSnackBar
   ) { }
 
+
   productClicked() {
-    // console.log('Product clicked:', this.product);
     this.router.navigate(['/product-details', this.product.id]);
   }
   toggleDescription() {
@@ -29,8 +29,6 @@ export class ProductComponent {
   }
   addToCart() {
     console.log('Add to cart clicked for product:');
-    // this.productService.addToCart(this.product);
-    // this.router.navigate(['cart', this.product.id]);
     this.productService.addToCart(this.product).subscribe({
       next: res => { this.showConfirmation(); },
       error: err => console.error('POST error:', err)
@@ -43,10 +41,18 @@ export class ProductComponent {
       horizontalPosition: 'center',
     });
   }
+  loadProducts() {
+    this.productService.getAllProducts().subscribe({
+      next: (products) => {
+        console.log('Products loaded:', products);
+      },
+      error: (err) => console.error('Error loading products:', err)
+    });
+  }
   deleteProduct() {
     console.log('Delete product clicked for product:', this.product);
     this.productService.deleteProduct(this.product.id).subscribe({
-      next: (res) => console.log('Deleted successfully', res),
+      next: (res) => { this.loadProducts() },
       error: (err) => console.error('Delete failed', err)
     });
   }

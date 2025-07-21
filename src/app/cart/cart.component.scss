@@ -67,3 +67,15 @@ ion-card{
     justify-content: center;
     gap: 20px;
 }
+
+mat-card
+{
+    background: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    width: 1042px;
+    margin: 0 auto;
+
+}

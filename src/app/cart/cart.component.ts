@@ -15,10 +15,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CartComponent {
   products: any[] = [];
-  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router,  private snackBar: MatSnackBar
-) { }
+  total: number = 0;
+  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router, private snackBar: MatSnackBar
+  ) { }
   ngOnInit() {
     this.getCartDetails();
+    this.getTotalPrice();
   }
   getCartDetails() {
     this.productService.getCartProducts().subscribe((data: any) => {
@@ -35,6 +37,7 @@ export class CartComponent {
       next: res => {
         this.showConfirmation();
         this.loadCart();
+        this.getTotalPrice();
       },
       error: err => console.error('Error removing product from cart:', err)
     });
@@ -57,4 +60,8 @@ export class CartComponent {
     });
   }
 
+  getTotalPrice() {
+    this.products.map((item: any) => { this.total += item.price });
+    return this.total;
+  }
 }
