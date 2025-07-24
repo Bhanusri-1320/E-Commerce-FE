@@ -3,6 +3,11 @@
 <h1><i (click)="Back()" title="back" class="fa-solid fa-circle-arrow-left"></i></h1>
 </div>
   <div class="main">
+    <div class="head-title">
+  <h4>Price</h4>
+  <h4>Quantity</h4>
+  <h4>Total</h4>
+</div>
   @for (item of products; track $index) {
    <app-cart-details [product]="item" (itemSelected)="handleItem($event)"></app-cart-details>
   }

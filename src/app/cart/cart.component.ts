@@ -20,11 +20,12 @@ export class CartComponent {
   ) { }
   ngOnInit() {
     this.getCartDetails();
-    this.getTotalPrice();
+    // this.getTotalPrice();
   }
   getCartDetails() {
     this.productService.getCartProducts().subscribe((data: any) => {
       this.products = data;
+      this.getTotalPrice();
     }, (error) => {
       console.error('Error fetching cart products:', error);
     });
@@ -46,6 +47,7 @@ export class CartComponent {
     this.productService.getCartProducts().subscribe({
       next: (products: any) => {
         this.products = products;
+        this.getTotalPrice();
       },
       error: (err) => {
         console.error('Error loading cart:', err);
@@ -61,6 +63,8 @@ export class CartComponent {
   }
 
   getTotalPrice() {
+    console.log('Calculating total price...');
+    this.total = 0;
     this.products.map((item: any) => { this.total += item.price });
     return this.total;
   }
