@@ -6,9 +6,11 @@
     <div class="detials">
         <div class="product-details">
         <p>$ {{product.price}}</p>
-        <p>quantity</p>
+        <div>
+        <label style="font-weight: bold;">Quantity: </label>
+        <input type="number" name="quantity" value="{{product.quantity}}" min="1" max="10"   [(ngModel)]="product.quantity" (ngModelChange)="updateCartQuantity(product.quantity)">
+        </div>
         <p>total</p>
-        <!-- <p><span>Discount: </span>{{product.discount}}</p> -->
         </div>
         <div>
         <button (click)="removeFromCart()" style=" background: #22949a;

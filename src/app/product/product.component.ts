@@ -28,11 +28,10 @@ export class ProductComponent {
     this.flag = !this.flag;
   }
   addToCart() {
+    this.product.quantity = 1;
     console.log('Add to cart clicked for product:');
-    this.productService.addToCart(this.product).subscribe({
-      next: res => { this.showConfirmation(); },
-      error: err => console.error('POST error:', err)
-    });
+    this.productService.addToCart(this.product);
+    this.showConfirmation();
   }
   showConfirmation() {
     this.snackBar.open('Product added to cart!', 'Close', {

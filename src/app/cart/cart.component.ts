@@ -19,6 +19,7 @@ export class CartComponent {
   constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router, private snackBar: MatSnackBar
   ) { }
   ngOnInit() {
+    this.loadCart();
     this.getCartDetails();
     // this.getTotalPrice();
   }
@@ -65,7 +66,7 @@ export class CartComponent {
   getTotalPrice() {
     console.log('Calculating total price...');
     this.total = 0;
-    this.products.map((item: any) => { this.total += item.price });
-    return this.total;
+    this.products.map((item: any) => { this.total += (item.price * item.quantity); });
+    this.total = (Math.round(this.total * 100) / 100);
   }
 }

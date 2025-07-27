@@ -12,11 +12,13 @@ import { Router } from '@angular/router';
 export class HomepageComponent {
 
   products: any[] = [];
+  cartItemCount: number = 0;
   constructor(private productsService: ProductService, private router: Router) {
   }
 
   ngOnInit() {
     this.loadProducts();
+    this.updateCartItemCount();
   }
   cart() {
     this.router.navigate(['cart']);
@@ -28,5 +30,9 @@ export class HomepageComponent {
     this.productsService.getAllProducts().subscribe((data: any) => {
       this.products = data;
     });
+  }
+
+  updateCartItemCount() {
+    this.cartItemCount = this.productsService.countCartItems();
   }
 }

@@ -1,7 +1,10 @@
 <div class="hole">
 <div class="header">
 <h1  class="head" (click)="goToHome()">E-commerce</h1>
-<h1 (click)="cart()" title="Cart"><i class="fa-solid fa-cart-shopping"></i></h1>
+<h1 (click)="cart()" title="Cart" >
+<i class="fa-solid fa-cart-shopping"></i>
+<div>{{this.cartItemCount}}</div>
+</h1>
 <!-- <h1><i class="fa-solid fa-bars"></i></h1> -->
 </div>
 <div class="main">

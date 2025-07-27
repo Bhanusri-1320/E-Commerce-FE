@@ -11,31 +11,31 @@ import {
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [IonCard, MatCardModule, MatButtonModule,IonCard],
+  imports: [IonCard, MatCardModule, MatButtonModule, IonCard],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
 export class ProductDetailsComponent {
 
-  product:any;
- constructor(private route: ActivatedRoute,
-  private productService: ProductService,
-  private router: Router,
-  private snackBar: MatSnackBar
- ) {
+  product: any;
+  constructor(private route: ActivatedRoute,
+    private productService: ProductService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {
     const id = this.route.snapshot.paramMap.get('id');
   }
   ngOnInit() {
- const id= this.route.snapshot.paramMap.get('id');
-  if (id) {
-  console.log('ProductDetailsComponent initialized');
-  console.log(this.route.snapshot.paramMap.get('id'));
-  this.loadProductDetails(id);
-  }
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      console.log('ProductDetailsComponent initialized');
+      console.log(this.route.snapshot.paramMap.get('id'));
+      this.loadProductDetails(id);
+    }
   }
 
   loadProductDetails(id: string) {
-    this.productService.getProductById(id).subscribe((data:any) => {
+    this.productService.getProductById(id).subscribe((data: any) => {
       this.product = data;
     }, error => {
       console.error('Error fetching product details:', error);
@@ -44,10 +44,8 @@ export class ProductDetailsComponent {
   addToCart(product: any) {
     // this.productService.addToCart(product);
     // this.router.navigate(['cart', product.id]);
-    this.productService.addToCart(product).subscribe({
-  next: res => {this.showConfirmation();},
-  error: err => console.error('POST error:', err)
-});
+    this.productService.addToCart(product);
+    this.showConfirmation();
   }
   showConfirmation() {
     this.snackBar.open('Product added to cart!', 'Close', {
@@ -56,8 +54,7 @@ export class ProductDetailsComponent {
       horizontalPosition: 'center',
     });
   }
-    Back()
-  {
+  Back() {
     this.router.navigate(['']);
   }
 }
