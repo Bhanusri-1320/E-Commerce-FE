@@ -26,7 +26,13 @@ export class CartDetailsComponent {
 
   updateCartQuantity(quantity: number) {
     console.log(quantity);
-    this.quantityUpdated.emit(quantity);
+    this.productService.updateCartQuantity(this.product.id, quantity).subscribe({
+      next: () => {
+        console.log('Product quantity updated:', this.product);
+        this.quantityUpdated.emit(quantity);
+      },
+      error: (err) => console.error('Error updating product quantity:', err)
+    });
   }
 
 

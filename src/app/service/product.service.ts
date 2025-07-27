@@ -94,4 +94,8 @@ export class ProductService {
     }
     return count;
   }
+
+  updateCartQuantity(id: string, quantity: number) {
+    return this.http.put(`${this.cartUrl}/${id}`, { quantity });
+  }
 }
