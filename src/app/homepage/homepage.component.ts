@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
+  standalone: true,
   imports: [ProductComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.scss'
@@ -34,5 +35,8 @@ export class HomepageComponent {
 
   updateCartItemCount() {
     this.cartItemCount = this.productsService.countCartItems();
+  }
+  goToLogin() {
+    this.router.navigate(['login']);
   }
 }

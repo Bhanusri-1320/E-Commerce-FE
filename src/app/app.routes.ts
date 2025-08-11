@@ -3,10 +3,12 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-  { path: '', component: HomepageComponent},
+  { path: '', component: HomepageComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
-  { path:'cart',component:CartComponent },
-  { path: '**', component:PageNotFoundComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
