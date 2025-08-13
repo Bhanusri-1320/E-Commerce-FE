@@ -1,35 +1,35 @@
-.hole
-{
+.hole {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-img
-{
+
+img {
     width: 500px;
     height: 400px;
     object-fit: cover;
 }
-ion-card{
+
+ion-card {
     display: inline;
     width: 1300px;
     height: 100%;
-    box-shadow: 1px 1px 3px 3px rgb(27 27 27 / 16%);  
+    box-shadow: 1px 1px 3px 3px rgb(27 27 27 / 16%);
     overflow: hidden;
     display: flex;
     flex-direction: row;
 }
-.product-details
-{
+
+.product-details {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
-.addToCart
-{
-    background: #22949a;
+
+.addToCart {
+    background: #ffabf3;
     width: 100px;
     height: 43px;
     font-weight: bold;
@@ -38,22 +38,22 @@ ion-card{
     border-radius: 5px;
     cursor: pointer;
 }
-.header
-{
+
+.header {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
-    background-color: #22949a;
+    background-color: #ffabf3;
     border-bottom: 1px solid #dee2e6;
     box-shadow: 1px 1px 3px 3px rgb(27 27 27 / 16%);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.fa-circle-arrow-left
-{
+
+.fa-circle-arrow-left {
     padding-left: 20px;
     cursor: pointer;
 }

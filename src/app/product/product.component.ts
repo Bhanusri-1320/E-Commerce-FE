@@ -6,11 +6,12 @@ import {
   MatSnackBar,
 } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [IonicModule, MatCardModule],
+  imports: [IonicModule, MatCardModule, MatButtonModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })

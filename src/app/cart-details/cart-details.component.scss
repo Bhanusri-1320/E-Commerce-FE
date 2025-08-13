@@ -1,5 +1,4 @@
-mat-card
-{
+mat-card {
     background: whitesmoke;
     display: flex;
     flex-direction: row;
@@ -9,22 +8,23 @@ mat-card
     margin: 0 auto;
 
 }
-.product-details
-{
+
+.product-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 150px;
 }
-img{
+
+img {
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 10px;
 }
-.cart-item
-{
+
+.cart-item {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -33,16 +33,16 @@ img{
     padding: 10px;
     border-bottom: 1px solid #ccc;
 }
-.detials
-{
+
+.detials {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 50px;
 }
-.removeCart
-{
-    background: #22949a;
+
+.removeCart {
+    background: #ffabf3;
     width: 100px;
     height: 43px;
     font-weight: bold;
