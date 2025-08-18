@@ -1,15 +1,23 @@
+
+
 <div class="hole">
-<mat-card class="login">
-<form class="form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="Ex. example@gamil.com" >
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Password</mat-label>
-    <input matInput placeholder="password">
-  </mat-form-field>
-  <button mat-raised-button color="accent">Basic</button>
-</form>
-</mat-card>
+  <mat-card class="login-card">
+    <form class="login-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <mat-form-field  class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput  type="email" formControlName="email" placeholder="Ex. example@gmail.com" required >
+      </mat-form-field>
+
+      <mat-form-field  class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Password" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width">Login</button>
+    </form>
+  </mat-card>
 </div>
+
+
+ 
+

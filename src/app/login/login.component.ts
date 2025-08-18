@@ -3,7 +3,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from "@angular/material/card";
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
 
@@ -20,8 +20,13 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class LoginComponent {
   signupForm!: FormGroup;
-  users: { userName: string; password: string }[] = []; // Array to store users
-
+  constructor(private fb: FormBuilder) {
+    this.signupForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
   onSubmit() {
+    console.log(this.signupForm.value);
   }
 }
